@@ -1,6 +1,12 @@
 ### dependency
 tqdm
 dvc
+pandas
+nympy
+scipy
+pyyaml
+scikit-learn
+lxml
 
 
 ### local packages -
