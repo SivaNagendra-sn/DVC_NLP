@@ -1,0 +1,14 @@
+[2021-11-02 18:38:47,962: INFO: stage_1_prep_data]: 
+********************
+[2021-11-02 18:38:47,962: INFO: stage_1_prep_data]: >>>>> stage Data Preparation started <<<<<
+[2021-11-02 18:38:47,963: INFO: common]: yaml file: configs/config.yaml loaded successfully
+[2021-11-02 18:38:47,964: INFO: common]: yaml file: params.yaml loaded successfully
+[2021-11-02 18:38:47,964: INFO: stage_1_prep_data]: >>>>> stage Data Preparation completed! <<<<<
+
+[2021-11-02 18:39:34,466: INFO: stage_1_prep_data]: 
+********************
+[2021-11-02 18:39:34,466: INFO: stage_1_prep_data]: >>>>> stage Data Preparation started <<<<<
+[2021-11-02 18:39:34,467: INFO: common]: yaml file: configs/config.yaml loaded successfully
+[2021-11-02 18:39:34,468: INFO: common]: yaml file: params.yaml loaded successfully
+[2021-11-02 18:39:34,468: INFO: stage_1_prep_data]: >>>>> stage Data Preparation completed! <<<<<
+
