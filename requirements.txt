@@ -1,8 +1,9 @@
 ### dependency
+
 tqdm
 dvc
 pandas
-nympy
+numpy
 scipy
 pyyaml
 scikit-learn
