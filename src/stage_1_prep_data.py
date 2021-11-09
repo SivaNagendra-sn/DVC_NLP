@@ -4,6 +4,7 @@ import shutil
 from tqdm import tqdm
 import logging
 from utils.common import read_yaml, create_directories
+from utils.data_management import process_posts
 import random
 
 
@@ -40,11 +41,12 @@ def prep_data(config_path, params_path):
 
 
     encode = "utf8"
-    with open(input_data, encoding=encode)as f_in:
-        with open(train_data_path, "w" ,encoding=encode) as f_train:
-            with open(test_data_path, "w" ,encoding=encode) as f_test:
-                pass
+    with open(input_data, encoding=encode) as fd_in:
+        with open(train_data_path, "w", encoding=encode) as fd_out_train:
+            with open(test_data_path, "w", encoding=encode) as fd_out_test:
+                process_posts(fd_in, fd_out_train, fd_out_test, "<python>", split_data)
 
+    
 
 if __name__ == '__main__':
     args = argparse.ArgumentParser()
