@@ -35,6 +35,17 @@ def prep_data(config_path, params_path):
 
     create_directories([prepared_data_dir_path])
 
+    train_data_path = os.path.join(prepared_data_dir_path, artifacts["TRAIN_DATA"])
+    test_data_path = os.path.join(prepared_data_dir_path, artifacts["TEST_DATA"])
+
+
+    encode = "utf8"
+    with open(input_data, encoding=encode)as f_in:
+        with open(train_data_path, "w" ,encoding=encode) as f_train:
+            with open(test_data_path, "w" ,encoding=encode) as f_test:
+                pass
+
+
 if __name__ == '__main__':
     args = argparse.ArgumentParser()
     args.add_argument("--config", "-c", default="configs/config.yaml")
