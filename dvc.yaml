@@ -1,7 +1,7 @@
-# add stages here 
+# add dvc stages here 
 stages:
   prepare_data:
-    cmd: python src/stage_1_prep_data.py
+    cmd: python src/stage_1_prep_data.py --config=configs/config.yaml --params=params.yaml
     deps:
       - src/stage_1_prep_data.py
       - data/data.xml
@@ -15,3 +15,19 @@ stages:
       - artifacts/prepared/train.tsv
       - artifacts/prepared/test.tsv
 
+  featurize_data:
+    cmd: python src/stage_2_featurization.py --config=configs/config.yaml --params=params.yaml
+    deps:
+      - src/stage_2_featurization.py
+      - src/utils/common.py
+      - src/utils/featurize.py
+      - artifacts/prepared/train.tsv
+      - artifacts/prepared/test.tsv
+      - configs/config.yaml
+    params:
+      - featurize.max_params
+      - featurize.n_grams
+    outs:
+      - artifacts/feature/train.pkl
+      - artifacts/feature/test.pkl
+  
