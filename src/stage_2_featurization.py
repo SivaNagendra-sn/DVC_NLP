@@ -3,7 +3,9 @@ import os
 import shutil
 from tqdm import tqdm
 import logging
-from utils.common import read_yaml, create_directories
+import numpy as np
+from utils.common import read_yaml, create_directories, get_df
+from sklearn.feature_extraction import CountVectorizer, TfidfVectorizer
 
 STAGE = "Featurization"
 
@@ -30,6 +32,14 @@ def main(config_path, params_path):
     featurized_train_data_path = os.path.join(prepared_data_dir_path, artifacts["FEATURIZED_OUT_TRAIN"])
     featurized_test_data_path = os.path.join(prepared_data_dir_path, artifacts["FEATURIZED_OUT_TEST"])
 
+    max_features = params["featurize"]["max_params"]
+    n_grams = params["featurize"]["n_grams"]
+
+    df_train = get_df(train_data_path)
+
+    train_words = np.array(df_train.text.str.lower().values.astype("U"))
+
+    print(train_words[:2])
 
 if __name__ == '__main__':
     args = argparse.ArgumentParser()
