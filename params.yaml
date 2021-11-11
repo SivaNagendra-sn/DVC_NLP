@@ -8,3 +8,7 @@ featurize:
   max_params: 3000
   n_grams: 2
   
+train:
+  seed: 2021
+  n_est: 100
+  min_split: 16
