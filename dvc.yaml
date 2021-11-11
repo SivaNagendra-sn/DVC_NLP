@@ -67,7 +67,7 @@ stages:
           y: tpr
 
   run_plots_command:
-    cmd: dvc plots diff 
+    cmd: dvc plots diff
 
 
 

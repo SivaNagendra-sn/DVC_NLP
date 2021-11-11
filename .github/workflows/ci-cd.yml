@@ -26,4 +26,4 @@ jobs:
           echo "## METRICS " >> report.md
           cat scores.json >> report.md
 
-          cml-send-comment report.md ## CML command used to comment on last commit
+          cml-send-comment report.md    ## CML command used to comment on last commit
