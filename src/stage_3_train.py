@@ -29,7 +29,7 @@ def main(config_path, params_path):
 
 # Create a directory to store the model 
 
-    model_dir_path = artifacts["MODEL_DIR"]
+    model_dir_path = os.path.join(artifacts["ARTIFACTS_DIR"], artifacts["MODEL_DIR"])
     create_directories([model_dir_path])
     model_path = os.path.join(model_dir_path, artifacts["MODEL_NAME"])
 
