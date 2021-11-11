@@ -1,1 +1,29 @@
 # add ci-cd steps here
+name: train_NLP_classification
+
+on: [push]
+
+jobs:
+  run: 
+    runs-on: [ubuntu-latest]
+    steps: 
+      - uses: actions/checkout@v2
+      - uses: iterative/setup-cml@v1
+      - uses: actions/python@v2
+        with: 
+          python-version: '3.7'
+      
+      - name: cml_run
+        env: 
+          repo_token: ${{secrets.GITHUB_TOKEN}}
+        run: |
+          # Your ML workflow commands
+          pip install --upgrade pip
+          pip install -r requirements.txt
+          dvc repro -v ## >> Verbose 
+
+          echo "# REPORTS" >> report.md
+          echo "## METRICS " >> report.md
+          cat scores.json >> report.md
+
+          cml-send-comment report.md ## CML command used to comment on last commit
