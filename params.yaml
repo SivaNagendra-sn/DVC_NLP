@@ -10,5 +10,5 @@ featurize:
   
 train:
   seed: 2021
-  n_est: 100
+  n_est: 70
   min_split: 16

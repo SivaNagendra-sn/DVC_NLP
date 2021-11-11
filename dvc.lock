@@ -79,12 +79,12 @@ stages:
     params:
       params.yaml:
         train.min_split: 16
-        train.n_est: 100
+        train.n_est: 70
         train.seed: 2021
     outs:
     - path: artifacts/model/model.pkl
-      md5: 346085e40b8cf0389f3bb3fbb5690882
-      size: 3553847
+      md5: f2814521ae03919105b21c16e526c1c3
+      size: 2501783
   run_plots_command:
     cmd: dvc plots diff
   evaluate:
@@ -94,8 +94,8 @@ stages:
       md5: b36391ab5f49dc6c5eba558567381f35
       size: 2597441
     - path: artifacts/model/model.pkl
-      md5: 346085e40b8cf0389f3bb3fbb5690882
-      size: 3553847
+      md5: f2814521ae03919105b21c16e526c1c3
+      size: 2501783
     - path: configs/config.yaml
       md5: 2d26514cf7cdc3703018257c7b3cdf5d
       size: 453
@@ -107,11 +107,11 @@ stages:
       size: 982
     outs:
     - path: prc.json
-      md5: e7d38386591b241b19685301a737ecc8
-      size: 132660
+      md5: 72f7f7e4399062a07c42729833da6817
+      size: 128915
     - path: roc.json
-      md5: 64b2023b01912f0c660fecf376f3a018
-      size: 31865
+      md5: 1f14249e8d46cafab8b3c57de390aa6b
+      size: 38364
     - path: scores.json
-      md5: 7a3f2985c41b787f4a2b4245824b2151
+      md5: 2c05bf804ef8f1352f83af3eb86e867e
       size: 81
