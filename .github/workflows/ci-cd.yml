@@ -23,22 +23,22 @@ jobs:
           --labels=cml-runner \
 
   model-training: 
-  needs: deploy-runner
-    runs-on: [self-hosted, cml-runner]
-    container: docker://iterativeai//cml:0-dvc2-base1
-    steps:       
-      - uses: actions/checkout@v2
-      - name: "Training the model"
-        env: 
-          repo_token: ${{secrets.PERSONAL_ACCESS_TOKEN}}
-        run: |
-          # Your ML workflow commands
-          pip install --upgrade pip
-          pip install -r requirements.txt
-          dvc repro -v ## >> Verbose 
+    needs: deploy-runner
+      runs-on: [self-hosted, cml-runner]
+      container: docker://iterativeai//cml:0-dvc2-base1
+      steps:       
+        - uses: actions/checkout@v2
+        - name: "Training the model"
+          env: 
+            repo_token: ${{secrets.PERSONAL_ACCESS_TOKEN}}
+          run: |
+            # Your ML workflow commands
+            pip install --upgrade pip
+            pip install -r requirements.txt
+            dvc repro -v ## >> Verbose 
 
-          echo "# REPORTS" >> report.md
-          echo "## METRICS " >> report.md
-          cat scores.json >> report.md
+            echo "# REPORTS" >> report.md
+            echo "## METRICS " >> report.md
+            cat scores.json >> report.md
 
-          cml-send-comment report.md    ## CML command used to comment on last commit
+            cml-send-comment report.md    ## CML command used to comment on last commit
