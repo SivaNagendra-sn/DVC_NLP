@@ -9,7 +9,7 @@ jobs:
     steps:
       - uses: iterative/setup-cml@v1
       - uses: actions/checkout@v2
-      - name: "Deply runner in EC2"
+      - name: "Deploy runner in EC2"
         shell: bash
         env: 
           REPO_TOKEN: ${{secrets.PERSONAL_ACCESS_TOKEN}}
@@ -20,7 +20,7 @@ jobs:
           --cloud aws \
           --cloud-region us-west \
           --cloud-type=m \
-          --labels=cml-runner \
+          --labels=cml-runner
 
   model-training: 
     needs: deploy-runner
